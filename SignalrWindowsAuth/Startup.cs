@@ -59,18 +59,6 @@ namespace SignalrWindowsAuth
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
 
-            app.Use(async (context, next) =>
-            {
-                // Don't allow unauthenticated access to the SPA ... but still allow access to unauthenticated controllers etc
-                if (!context.Request.Path.Value.StartsWith("/api/") && !context.User.Identity.IsAuthenticated)
-                {
-                    await context.ChallengeAsync("Windows");
-                    return;
-                }
-
-                await next();
-            });
-
             app.UseSignalR(routes =>
             {
                 routes.MapHub<AnonHub>("/hub/Anon");
