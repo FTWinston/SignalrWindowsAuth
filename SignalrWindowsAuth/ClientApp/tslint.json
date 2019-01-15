@@ -1,0 +1,20 @@
+{
+  "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
+  "linterOptions": {
+    "exclude": [
+      "config/**/*.js",
+      "node_modules/**/*.ts",
+      "coverage/lcov-report/*.js"
+    ]
+  },
+  "rules": {
+    "no-bitwise": false,
+    "object-literal-shorthand": false,
+    "radix": false,
+    "interface-name": false, // for State and Props interfaces
+    "member-access": false, // for defaultProps
+    "no-var-requires": false, // for icon requires
+    "no-console": false,
+    "no-empty-interface": false
+  }
+}
